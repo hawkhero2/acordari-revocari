@@ -12,9 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cereri', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unique();
             $table->string('type');
-            $table->json('form_data');
+            $table->json('form_data'); // full_name;number;ROM/DM;user;dataserver/qnap/synology;cod_iso;date;
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->unsignedBigInteger('number');
             $table->string('responsable');
             $table->string('RSMI');
             $table->timestamps();
