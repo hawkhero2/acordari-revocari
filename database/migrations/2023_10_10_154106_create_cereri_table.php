@@ -17,7 +17,9 @@ return new class extends Migration
             $table->json('form_data'); // full_name;number;ROM/DM;user;dataserver/qnap/synology;cod_iso;date;
             $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users');
-            $table->unsignedBigInteger('number');
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('status_cereri');
+            $table->unsignedBigInteger('number')->unique();
             $table->string('responsable');
             $table->string('RSMI');
             $table->timestamps();
