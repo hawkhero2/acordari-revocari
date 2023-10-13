@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('status_cereri');
             $table->unsignedBigInteger('number')->unique();
+            $table->boolean('state')->default(0);
             $table->string('responsable');
             $table->string('RSMI');
             $table->timestamps();
