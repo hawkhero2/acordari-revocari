@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('type_cereri', function (Blueprint $table) {
+        Schema::create('responsable', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('name');
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('type_cereri');
+        Schema::dropIfExists('responsable');
     }
 };
